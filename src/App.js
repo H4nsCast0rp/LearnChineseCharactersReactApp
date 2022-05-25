@@ -1,5 +1,6 @@
 import './App.css';
 import data from './data.json';
+import Emojis from './emojis.js'
 
 function App() {
   return (
@@ -24,10 +25,12 @@ function Characters() {
   return (
     <div style={{ width: 400 }}>
       {backendData.map(ele => 
-        <div style={charsRootStyle}>
+        <div key={ele.id} style={charsRootStyle}>
           <h3>{ele.characters}</h3>
           <p>{ele.traduction}</p>
+          <Emojis searchWords={ele.traduction} />
           <small>{ele.pinyin}</small>
+          
         </div>
       )}
     </div>
